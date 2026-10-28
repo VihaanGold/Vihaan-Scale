@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Vihaan Scale (°V) Calculator</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #0d1117;
+            color: #c9d1d9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .card {
+            background-color: #161b22;
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid #30363d;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+            width: 320px;
+            text-align: center;
+        }
+        h2 { color: #58a6ff; margin-bottom: 10px; }
+        p { font-size: 14px; color: #8b949e; }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 15px 0;
+            background-color: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            color: #c9d1d9;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        .result {
+            font-size: 22px;
+            font-weight: bold;
+            color: #3fb950;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Vihaan Scale (°V)</h2>
+        <p>Inventor: Vihaan S.</p>
+        <p>Enter temperature in Celsius (°C):</p>
+        <input type="number" id="celsiusInput" placeholder="e.g. 37" oninput="convertTemp()">
+        <div class="result" id="resultOutput">0.00 °V</div>
+    </div>
+
+    <script>
+        function convertTemp() {
+            let celsius = parseFloat(document.getElementById('celsiusInput').value);
+            if (isNaN(celsius)) {
+                document.getElementById('resultOutput').innerHTML = "0.00 °V";
+                return;
+            }
+            // Formula: °V = (Celsius / 37) * 100
+            let vihaanVal = (celsius / 37) * 100;
+            document.getElementById('resultOutput').innerHTML = vihaanVal.toFixed(2) + " °V";
+        }
+    </script>
+</body>
+  </html>
+  
